@@ -1,12 +1,101 @@
 <template>
-    <el-menu theme="dark" default-active="1" class="el-menu-demo" mode="horizontal" :router="true">
-        <el-menu-item index="/elindex/hot">处理中心</el-menu-item>
-        <el-submenu index="2">
-            <template slot="title">我的工作台</template>
-            <el-menu-item index="2-1">选项1</el-menu-item>
-            <el-menu-item index="2-2">选项2</el-menu-item>
-            <el-menu-item index="2-3">选项3</el-menu-item>
-        </el-submenu>
-        <el-menu-item index="3">订单管理</el-menu-item>
-    </el-menu>
+    <div>
+        <el-row>
+            <el-col :span="6">
+                <el-button type="primary">主要按钮</el-button>
+            </el-col>
+        </el-row>
+        <el-row>
+            <el-table
+                    :data="tableData"
+                    style="width: 100%">
+                <el-table-column
+                        prop="date"
+                        label="日期"
+                        width="160">
+                </el-table-column>
+                <el-table-column
+                        prop="name"
+                        label="姓名"
+                        width="160">
+                </el-table-column>
+                <el-table-column
+                        prop="address"
+                        label="地址">
+                </el-table-column>
+            </el-table>
+        </el-row>
+
+        <!--<foot></foot>-->
+    </div>
 </template>
+<script>
+    import {Grid, GridItem, GroupTitle} from 'vux'
+    import Foot from './foot.vue'
+
+    export default{
+        components:{
+            Grid,
+            GridItem,
+            GroupTitle,
+            Foot
+        },
+        data(){
+            return {
+                tableData: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1518 弄'
+                }, {
+                    date: '2016-05-04',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1517 弄'
+                }, {
+                    date: '2016-05-01',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1519 弄'
+                }, {
+                    date: '2016-05-03',
+                    name: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                },
+                    {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    },
+                    {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    },
+                    {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    },
+                    {
+                        date: '2016-05-01',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1519 弄'
+                    }]
+            }
+        },
+        methods:{
+            onItemClick(){
+                console.log("ccccc");
+            }
+        }
+
+    }
+</script>
+
+<style scoped lang="scss">
+    @import '~styles/main.scss';
+
+    .grid-center {
+        display: block;
+        text-align: center;
+        color: #666;
+    }
+</style>

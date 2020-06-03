@@ -17,7 +17,12 @@ const router = new VueRouter({
     routes:[
     {
         path: '/',
-        redirect: '/grid'
+        redirect: '/element'
+    },
+    {
+        path: '/element',
+        component: Element,
+        name: 'Grid',
     },
     {
         path: '/grid',
