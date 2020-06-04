@@ -1,47 +1,47 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
-var path = require('path');
+var path = require("path");
 
 module.exports = {
-  moduleName:'modules', 
-  
+  moduleName: "modules",
+
   build: {
-    env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/modules/index/index.html'),
-    phone: path.resolve(__dirname, '../dist/modules/phone/phone.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    env: require("./prod.env"),
+    index: path.resolve(__dirname, "../dist/modules/index/index.html"),
+    phone: path.resolve(__dirname, "../dist/modules/phone/phone.html"),
+    assetsRoot: path.resolve(__dirname, "../dist"),
+    assetsSubDirectory: "static",
+    assetsPublicPath: "/",
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
-    productionGzipExtensions: ['js', 'css'],
-    bundleAnalyzerReport: process.env.npm_config_report
-},
-dev: {
-    env: require('./dev.env'),
-    assetsSubDirectory: 'static',
-    prefixUrl:'http://127.0.0.1:',//自动启动浏览器时的前缀
+    productionGzipExtensions: ["js", "css"],
+    bundleAnalyzerReport: process.env.npm_config_report,
+  },
+  dev: {
+    env: require("./dev.env"),
+    assetsSubDirectory: "static",
+    prefixUrl: "http://127.0.0.1:", //自动启动浏览器时的前缀
     port: 8088,
-    suffixUrl:"/modules/index.html#/population",//自动启动浏览器的后缀
-    assetsPublicPath: '/',
+    suffixUrl: "/modules/phone.html", //自动启动浏览器的后缀
+    assetsPublicPath: "/",
     proxyTable: {
-        '/api/*': {
-           target:'http://127.0.0.1:8080/Urban/rest',
-           // target: 'http://'+rootIP,
-            changeOrigin: true,
-            pathRewrite: {
-                '^/api': '',
-            }
-        }
+      "/api/*": {
+        target: "http://127.0.0.1:8080/Urban/rest",
+        // target: 'http://'+rootIP,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": "",
+        },
+      },
     },
-        // CSS Sourcemaps off by default because relative paths are "buggy"
-        // with this option, according to the CSS-Loader README
-        // (https://github.com/webpack/css-loader#sourcemaps)
-        // In our experience, they generally work as expected,
-        // just be aware of this issue when enabling this option.
-        cssSourceMap: false
-    }
-}
+    // CSS Sourcemaps off by default because relative paths are "buggy"
+    // with this option, according to the CSS-Loader README
+    // (https://github.com/webpack/css-loader#sourcemaps)
+    // In our experience, they generally work as expected,
+    // just be aware of this issue when enabling this option.
+    cssSourceMap: false,
+  },
+};

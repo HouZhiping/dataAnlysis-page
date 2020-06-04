@@ -1,22 +1,25 @@
 // import babelpolyfill from 'babel-polyfill'
-import Vue from 'vue'
-import Grid from './phone/Grid.vue'
-import App from './Phone.vue'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import Vue from "vue";
+import Grid from "./phone/Grid.vue";
+import App from "./Phone.vue";
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-default/index.css";
+import NutUI from "@nutui/nutui";
+import "@nutui/nutui/dist/nutui.css";
 // import VueRouter from 'vue-router'
-import store from '../../vuex/store'
-import Vuex from 'vuex'
+import store from "../../vuex/store";
+import Vuex from "vuex";
 //import NProgress from 'nprogress'
 //import 'nprogress/nprogress.css'
-import router from '../../route/routesPhone'
-import Mock from '../../mock'
+import router from "../../route/routesPhone";
+import Mock from "../../mock";
 Mock.bootstrap();
-import 'font-awesome/css/font-awesome.min.css'
+import "font-awesome/css/font-awesome.min.css";
 
-Vue.use(ElementUI)
+Vue.use(ElementUI);
+NutUI.install(Vue);
 // Vue.use(VueRouter)
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 //NProgress.configure({ showSpinner: false });
 
@@ -34,6 +37,5 @@ const app1 = new Vue({
   router,
   store,
   //components: { App }
-  render: h => h(App)
-}).$mount('#phone')
-
+  render: (h) => h(App),
+}).$mount("#phone");
